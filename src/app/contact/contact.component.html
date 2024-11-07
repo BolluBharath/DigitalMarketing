@@ -1,0 +1,32 @@
+<div class="contact-container">
+    <div class="contact-form">
+      <h2 class="contact-title">You made it!</h2>
+      <p class="contact-description">
+        Looking to build your brand or elevate your career? Connect with us to talk about your needs and see how our team can help. Fill out the form below or pick the appropriate person to email.
+      </p>
+  
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input type="email" formControlName="email" placeholder="Email" />
+        </div>
+        <div class="form-group">
+          <input type="text" formControlName="firstName" placeholder="First Name" />
+        </div>
+        <div class="form-group">
+          <input type="text" formControlName="lastName" placeholder="Last Name" />
+        </div>
+        <div class="form-group">
+          <input type="text" formControlName="industry" placeholder="Industry" />
+        </div>
+        <div class="form-group">
+          <select formControlName="interested">
+            <option value="">I'm interested in...</option>
+            <option *ngFor="let option of interestOptions" [value]="option">{{ option }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" [disabled]="contactForm.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
