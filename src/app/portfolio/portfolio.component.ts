@@ -22,7 +22,7 @@ export class PortfolioComponent {
       summary: "A comprehensive digital marketing strategy service using data-driven methods to enhance online visibility and customer engagement.",
       description: "This service focuses on building a personalized digital marketing strategy aimed at maximizing online presence and brand awareness. Our team will perform an in-depth analysis of your market, competitors, and audience to develop a custom plan. We utilize metrics from Google Analytics, engagement rates, conversion tracking, and advanced SEO techniques. We manage campaigns across platforms, ensuring consistent brand voice and targeted messaging to boost ROI. We also provide ongoing optimization, tracking KPIs, and adjusting strategies to adapt to market trends.",
       tags: [Tag.DIGITAL_MARKETING, Tag.ANALYTICS, Tag.STRATEGY, Tag.SEO, Tag.CONTENT_CREATION],
-      pictures: ["../../assets/digital_marketing01.png", "../../assets/digital_marketing02.png"]
+      pictures: ["../../assets/digital_marketing01.png", "../../assets/digital_marketing02.jpg"]
     },
     {
       id: 2,
@@ -85,7 +85,7 @@ export class PortfolioComponent {
 
 
   constructor(private titleService: Title) {
-    this.titleService.setTitle('BC | Portfolio')
+    this.titleService.setTitle('Digivate | Services')
   }
 
   trackById(index: number, project: Card): number {
