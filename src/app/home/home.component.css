@@ -9,10 +9,10 @@
     }
   }
 
-.home-container {
-    background: #141a20;
-    padding: 40px 20px;
-    border-radius: 8px;
+  .home-container {
+    background: linear-gradient(135deg, #0a192f 0%, #0d1b2a 100%);
+    min-height: 100vh;
+    position: relative;
     height: 88vh;
     overflow-y: auto;
     display: flex;
@@ -57,3 +57,28 @@
     50% { border-color: rgb(255,94,41); }
 }
 
+.particles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    animation: float linear infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+      transform: translateY(-100vh) rotate(360deg);
+    }
+  }

@@ -1,32 +1,66 @@
-<div class="contact-container">
-    <div class="contact-form">
-      <h2 class="contact-title">You made it!</h2>
-      <p class="contact-description">
-        Looking to build your brand or elevate your career? Connect with us to talk about your needs and see how our team can help. Fill out the form below or pick the appropriate person to email.
-      </p>
-  
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <input type="email" formControlName="email" placeholder="Email" />
-        </div>
-        <div class="form-group">
-          <input type="text" formControlName="firstName" placeholder="First Name" />
-        </div>
-        <div class="form-group">
-          <input type="text" formControlName="lastName" placeholder="Last Name" />
-        </div>
-        <div class="form-group">
-          <input type="text" formControlName="industry" placeholder="Industry" />
-        </div>
-        <div class="form-group">
-          <select formControlName="interested">
-            <option value="">I'm interested in...</option>
-            <option *ngFor="let option of interestOptions" [value]="option">{{ option }}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <button type="submit" [disabled]="contactForm.invalid">Submit</button>
-        </div>
-      </form>
+<!-- contact.component.html -->
+<section class="contact-section">
+  <!-- Animated Background -->
+  <div class="particles-container">
+    <div class="particle" 
+         *ngFor="let particle of particles" 
+         [style.left]="particle.left"
+         [style.top]="particle.top"
+         [style.width]="particle.size"
+         [style.height]="particle.size"
+         [style.animation-duration]="particle.animationDuration">
     </div>
   </div>
+
+  <div class="container">
+    <!-- Header Section -->
+    <div class="row justify-content-center text-center mb-5" @fadeInUp>
+      <div class="col-lg-8">
+        <div class="header-content">
+          <h1 class="display-3 fw-bold mb-4">Get in Touch</h1>
+          <div class="title-accent"></div>
+          <p class="lead mt-4">
+            We're here to help and answer any question you might have. 
+            We look forward to hearing from you!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Cards -->
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" *ngFor="let method of contactMethods; let i = index">
+        <div class="contact-card" [style.background]="method.color">
+          <div class="card-content">
+            <div class="icon-wrapper">
+              <i class="bi {{ method.icon }}"></i>
+            </div>
+            <h3>{{ method.title }}</h3>
+            <p>
+              <a *ngIf="method.link" [href]="method.link" class="contact-link">
+                {{ method.value }}
+              </a>
+              <span *ngIf="!method.link">{{ method.value }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <h2 class="h3 mb-4">Connect With Us</h2>
+        <div class="social-links">
+          <a *ngFor="let social of socialLinks" 
+             [href]="social.link" 
+             [attr.aria-label]="social.name"
+             class="social-icon"
+             [style.background-color]="social.color">
+            <i class="bi {{ social.icon }}"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

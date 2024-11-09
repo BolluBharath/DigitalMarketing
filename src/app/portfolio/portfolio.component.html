@@ -1,4 +1,14 @@
-<div class="align-items-center default-container">
+<div class="align-items-center home-container">
+    <div class="particles-container">
+        <div class="particle" 
+             *ngFor="let particle of particles" 
+             [style.left]="particle.left"
+             [style.top]="particle.top"
+             [style.width]="particle.size"
+             [style.height]="particle.size"
+             [style.animation-duration]="particle.animationDuration">
+        </div>
+      </div>
     <div class="content col-lg-8">
         <div class="row">
             @for(service of services; track service.id) {

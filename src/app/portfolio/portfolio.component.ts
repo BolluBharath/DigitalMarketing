@@ -4,11 +4,12 @@ import { CardComponent } from '../card/card.component';
 import { Card } from '../_models/card';
 import { Tag } from '../_models/tags';
 import { Service } from '../_models/service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CardComponent],
+  imports: [CardComponent,CommonModule],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css',
   providers: []
@@ -81,15 +82,30 @@ export class PortfolioComponent {
       pictures: ["../../assets/sales_growth01.png", "../../assets/sales_growth02.png"]
     }
   ];
-  
+  particles: any[] = [];
 
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('Digivate | Services')
   }
 
+  ngOnInit(): void {
+    this.generateParticles();
+  }
+
   trackById(index: number, project: Card): number {
     return project.id;
+  }
+
+  generateParticles() {
+    for (let i = 0; i < 50; i++) {
+      this.particles.push({
+        left: Math.random() * 100 + '%',
+        top: Math.random() * 100 + '%',
+        animationDuration: (Math.random() * 20 + 10) + 's',
+        size: Math.random() * 5 + 2 + 'px'
+      });
+    }
   }
 
 }

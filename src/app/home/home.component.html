@@ -1,4 +1,14 @@
-<div class="row align-items-center default-container">
+<div class="row align-items-center home-container">
+  <div class="particles-container">
+    <div class="particle" 
+         *ngFor="let particle of particles" 
+         [style.left]="particle.left"
+         [style.top]="particle.top"
+         [style.width]="particle.size"
+         [style.height]="particle.size"
+         [style.animation-duration]="particle.animationDuration">
+    </div>
+  </div>
   <div class="col-lg-10">
     <div class="text-left">
       <h1 class="home-title">Elevating Your Digital Presence</h1>

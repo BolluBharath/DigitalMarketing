@@ -1,3 +1,263 @@
+/* contact.component.css */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #FF416C, #FF4B2B);
+  --dark-bg: #0a192f;
+  --card-bg: rgba(17, 34, 64, 0.95);
+}
+
+/* contact.component.css */
+.contact-section {
+  background: linear-gradient(135deg, #0a192f 0%, #0d1b2a 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+  color: white;
+}
+
+/* Particle Animation */
+.particles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+/* Header Styling */
+.header-content {
+  position: relative;
+  padding: 2rem;
+}
+
+.header-content h1 {
+  background: linear-gradient(135deg, #FF416C, #FF4B2B);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient 8s ease infinite;
+}
+
+.title-accent {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #FF416C, #FF4B2B);
+  margin: 0 auto;
+  border-radius: 2px;
+  position: relative;
+}
+
+.title-accent::before,
+.title-accent::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #FF416C;
+  border-radius: 50%;
+  top: -2px;
+}
+
+.title-accent::before {
+  left: -4px;
+}
+
+.title-accent::after {
+  right: -4px;
+}
+
+/* Contact Cards */
+.contact-card {
+  border-radius: 20px;
+  padding: 2rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contact-card:hover::before {
+  opacity: 0.1;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .icon-wrapper {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.icon-wrapper i {
+  font-size: 2rem;
+  color: white;
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.contact-link {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.contact-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.contact-link:hover::after {
+  width: 100%;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+}
+
+.social-icon:hover::before {
+  transform: scale(1);
+}
+
+.social-icon i {
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .header-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .contact-card {
+    padding: 1.5rem;
+  }
+
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon-wrapper i {
+    font-size: 1.5rem;
+  }
+}
+
 .contact-container {
   display: flex;
   justify-content: center;
