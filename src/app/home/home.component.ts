@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -16,11 +17,41 @@ import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
   styleUrls: [
     './home.component.css',
     '/src/styles.css'
+  ],
+  animations: [
+    trigger('fadeInUp', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(20px)' }),
+        animate('0.5s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+      ])
+    ]),
+    trigger('slideInLeft', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(-50px)' }),
+        animate('0.5s 0.2s ease-out', style({ opacity: 1, transform: 'translateX(0)' }))
+      ])
+    ]),
+    trigger('slideInRight', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(50px)' }),
+        animate('0.5s 0.4s ease-out', style({ opacity: 1, transform: 'translateX(0)' }))
+      ])
+    ]),
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.5s 0.6s ease-out', style({ opacity: 1 }))
+      ])
+    ]),
+    trigger('pulseAnimation', [
+      state('pulse', style({ transform: 'scale(1.05)' })),
+      transition('* => pulse', [animate('0.3s ease-in-out')]),
+      transition('pulse => *', [animate('0.3s ease-in-out')])
+    ])
   ]
 })
 
 export class HomeComponent implements OnInit {
-
   dynamicText: string = "";
   phrases: string[] = [
     "Digital Marketing.",

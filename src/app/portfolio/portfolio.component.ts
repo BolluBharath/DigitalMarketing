@@ -5,6 +5,7 @@ import { Card } from '../_models/card';
 import { Tag } from '../_models/tags';
 import { Service } from '../_models/service';
 import { CommonModule } from '@angular/common';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-projects',
@@ -12,7 +13,25 @@ import { CommonModule } from '@angular/common';
   imports: [CardComponent,CommonModule],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css',
-  providers: []
+  providers: [],
+  animations: [
+    trigger('fadeInAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-20px)' }),
+        animate('0.5s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+      ])
+    ]),
+    trigger('listAnimation', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(20px)' }),
+          stagger(100, [
+            animate('0.5s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ])
+      ])
+    ])
+  ]
 })
 export class PortfolioComponent {
 

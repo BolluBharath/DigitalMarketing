@@ -10,13 +10,13 @@
     </div>
   </div>
   <div class="col-lg-10">
-    <div class="text-left">
-      <h1 class="home-title">Elevating Your Digital Presence</h1>
-      <h6 class="home-author">Your Partner for Success in <span id="dynamic-text">{{ dynamicText }}</span></h6>
-      <blockquote>
-        From engaging social media content to high-conversion website designs, I offer comprehensive digital solutions tailored to your needs. Let’s bring your brand to the forefront of the digital landscape.
+    <div class="text-left" [@fadeInUp]>
+      <h1 class="home-title" [@slideInLeft]>Elevating Your Digital Presence</h1>
+      <h6 class="home-author" [@slideInRight]>Your Partner for Success in <span id="dynamic-text">{{ dynamicText }}</span></h6>
+      <blockquote [@fadeIn]>
+        From engaging social media content to high-conversion website designs, I offer comprehensive digital solutions tailored to your needs. Let's bring your brand to the forefront of the digital landscape.
       </blockquote>
-      <button>
+      <button class="explore-button" [@pulseAnimation]>
         <a routerLink="/services">
           > Explore Services
         </a>

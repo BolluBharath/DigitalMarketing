@@ -1,15 +1,15 @@
 <footer class="footer bg-dark">
   <div class="container">
     <div class="footer-content">
-      <p>&copy; <span id="currentYear"></span> {{currentYear }} | Digivate.</p>
+      <p [@fadeInAnimation]>&copy; {{ currentYear }} | Digivate.</p>
       <div class="footer-icons">
-        <a href="mailto:bcalderoni.ti@gmail.com">
+        <a href="mailto:bcalderoni.ti@gmail.com" [@iconAnimation]="'idle'">
           <i class="fas fa-envelope"></i>
         </a>
-        <a href="mailto:bcalderoni.ti@gmail.com">
+        <a href="tel:+1234567890" [@iconAnimation]="'idle'">
           <i class="fas fa-phone"></i>
         </a>
-        <a href="https://twitter.com/bederoni" target="_blank">
+        <a href="https://twitter.com/bederoni" target="_blank" rel="noopener noreferrer" [@iconAnimation]="'idle'">
           <i class="fab fa-twitter"></i>
         </a>
       </div>
